@@ -1,21 +1,28 @@
-import React from 'react'
+import { useState } from 'react'
 
-export const Noteview = ({title, value}) => {
+
+export const Noteview = ({ heading, note }) => {
+
+
+
+
+ 
+
   return (
 
-    <div className='border border-slate-300
-      p-3 h-60 mx-auto 
-      rounded-xl shadow-sm 
-      hover:outline hover:outline-slate-400 
-      cursor-pointer'>
-        
-        <p className='text-lg text-slate-700 font-semibold'>
-            {title}
-        </p>
+    <div className={`
+      p-3 mx-auto w-full border
+      rounded-lg shadow-2xl shadow-blue-100
+      hover:outline hover:outline-blue-100
+      cursor-pointer`} >
 
-        <p className='mt-2 text-slate-500 font-medium'>
-            {value}
-        </p>
+      <p className='text-md text-slate-500 font-bold'>
+        {heading && heading}
+      </p>
+
+      <p className='text-sm mt-2 text-slate-500 font-medium'>
+        {note && note}
+      </p>
 
     </div>
   )
