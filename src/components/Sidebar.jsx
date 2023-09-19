@@ -25,7 +25,7 @@ export const Sidebar = () => {
         e.preventDefault();
 
 
-        axios.post({`${back}/notes/save`}, { heading, note })
+        axios.post(`${back}/notes/save`, { heading, note })
             .then((res) => {
                 const response = res.data;
                 console.log(response);
