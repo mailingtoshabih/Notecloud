@@ -10,7 +10,9 @@ import { open } from '../app/NewNoteSlice';
 const allNotes = ['Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe', 'Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe']
 
 
-const back = import.meta.env.VITE_BACK;
+
+
+const backend = import.meta.env.VITE_URL;
 
 
 
@@ -25,7 +27,7 @@ export const Sidebar = () => {
         e.preventDefault();
 
 
-        axios.post(`${back}/notes/save`, { heading, note })
+        axios.post(`${backend}/notes/save`, { heading, note })
             .then((res) => {
                 const response = res.data;
                 console.log(response);
@@ -41,7 +43,7 @@ export const Sidebar = () => {
 
     useEffect(() => {
         const fetchNotes = () => {
-            axios.get("http://localhost:3000/notes/all")
+            axios.get(`${backend}/notes/all`)
                 .then((res) => {
                     setNotes(res.data.reverse());
                 })

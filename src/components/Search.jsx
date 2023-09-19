@@ -25,7 +25,7 @@ export const Search = () => {
                 <>
                     <input type="text"
                         placeholder='Search Notes'
-                        onChange={(e) => dispatch(search(e.target.value))}
+                        // onChange={(e) => dispatch(search(e.target.value))}
                         className='w-full p-2 px-4 h-10 lg:h-14
                             rounded-xl
                             text-zinc-500 lg:text-lg font-semibold

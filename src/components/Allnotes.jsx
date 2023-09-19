@@ -10,7 +10,8 @@ import { newnote, newheading } from "../app/SaveSlice"
 const allNotes = ['Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe', 'Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe']
 const value = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione sint sit perferendis nostrum neque, quasi ullam consectetur inventore obcaecati alias."
 
-const back = import.meta.env.VITE_BACK;
+const backend = import.meta.env.VITE_URL
+
 
 
 export const Allnotes = () => {
@@ -27,7 +28,7 @@ export const Allnotes = () => {
 
     useEffect(() => {
         const fetchNotes = () => {
-            axios.get(`${back}/notes/all`)
+            axios.get(`${backend}/notes/all`)
                 .then((res) => {
                     setNotes(res.data.reverse());
                 })
@@ -51,7 +52,7 @@ export const Allnotes = () => {
             overflow-y-auto'>
 
             <>
-                {/* <Search /> */}
+                <Search />
             </>
 
 
@@ -89,6 +90,7 @@ export const Allnotes = () => {
             <div className='mx-auto 
                 pt-6 gap-10
                 grid grid-cols-1
+                md:grid-cols-2
                 lg:grid-cols-2
                 xl:grid-cols-3
                 2xl:grid-cols-4'>
@@ -100,6 +102,7 @@ export const Allnotes = () => {
                             ))
                         )
                         :
+                        
                         (
                             notes?.reverse().map((note, index) => (
                                 <Noteview key={index} heading={note.heading} note={note.note} />
