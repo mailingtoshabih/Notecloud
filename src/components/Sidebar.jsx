@@ -10,7 +10,7 @@ import { open } from '../app/NewNoteSlice';
 const allNotes = ['Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe', 'Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe']
 
 
-
+const back = import.meta.env.VITE_BACK;
 
 
 
@@ -25,7 +25,7 @@ export const Sidebar = () => {
         e.preventDefault();
 
 
-        axios.post("http://localhost:3000/notes/save", { heading, note })
+        axios.post({`${back}/notes/save`}, { heading, note })
             .then((res) => {
                 const response = res.data;
                 console.log(response);
