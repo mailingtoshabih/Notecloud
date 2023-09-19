@@ -27,7 +27,7 @@ export const Allnotes = () => {
 
     useEffect(() => {
         const fetchNotes = () => {
-            axios.get({`${back}/notes/all`})
+            axios.get(`${back}/notes/all`)
                 .then((res) => {
                     setNotes(res.data.reverse());
                 })
