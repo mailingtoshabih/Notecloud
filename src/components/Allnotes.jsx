@@ -10,8 +10,7 @@ import { newnote, newheading } from "../app/SaveSlice"
 const allNotes = ['Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe', 'Note A', 'Note Ar', 'Note Avr', 'Note Argrgg', 'Note Apooy', 'Note Aznc', 'Note Awewwe']
 const value = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione sint sit perferendis nostrum neque, quasi ullam consectetur inventore obcaecati alias."
 
-
-
+const back = import.meta.env.VITE_BACK;
 
 
 export const Allnotes = () => {
@@ -28,7 +27,7 @@ export const Allnotes = () => {
 
     useEffect(() => {
         const fetchNotes = () => {
-            axios.get("http://localhost:3000/notes/all")
+            axios.get({`${back}/notes/all`})
                 .then((res) => {
                     setNotes(res.data.reverse());
                 })
